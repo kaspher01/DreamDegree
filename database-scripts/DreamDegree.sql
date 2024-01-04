@@ -16,6 +16,8 @@ CREATE TABLE `accommodation` (
   `name` varchar(100) DEFAULT NULL,
   `id_address` int DEFAULT NULL,
   `type_of_accommodation` enum('mieszkanie','pokoj','dom') DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `link` varchar(555) DEFAULT NULL,
   PRIMARY KEY (`id_accommodation`),
   KEY `id_address` (`id_address`),
   CONSTRAINT `accommodation_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`)
@@ -32,6 +34,7 @@ CREATE TABLE `academy` (
   `id_address` int DEFAULT NULL,
   `id_field_of_study` int DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
+  `link` varchar(555) DEFAULT NULL,
   PRIMARY KEY (`id_academy`),
   KEY `id_address` (`id_address`),
   KEY `id_field_of_study` (`id_field_of_study`),
@@ -48,6 +51,7 @@ CREATE TABLE `bus_stop` (
 CREATE TABLE `bus_line` (
   `id_bus_line` int NOT NULL,
   `id_bus_stop` int DEFAULT NULL,
+  `line_number` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_bus_line`),
   KEY `id_bus_stop` (`id_bus_stop`),
   CONSTRAINT `bus_line_ibfk_1` FOREIGN KEY (`id_bus_stop`) REFERENCES `bus_stop` (`id_bus_stop`)
