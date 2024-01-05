@@ -3,17 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <div className="navbar">
-            <div className="home">
-                <Link to="/">Strona domowa</Link>
-            </div>
-            <div className="academies">
-                <Link to="/academies">Lista uczelni</Link>
-            </div>
-            <div className="register">
-                <Link to="/register">Zarejestruj się</Link>
-            </div>
-        </div>
+        <nav className="navbar">
+            <a href="/" className="site-title">DreamDegree</a>
+            <ul>
+                <li><a href="/">Strona domowa</a></li>
+                <li><a href="/academies">Lista uczelni</a></li>
+                <li><a href="/register">Zarejestruj się</a></li>
+                <li><a href="/login">Zaloguj się</a></li>
+            </ul>
+        </nav>
     )
 }
 

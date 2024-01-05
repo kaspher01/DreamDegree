@@ -6,6 +6,7 @@ import Academies from "./pages/Academies";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 
+
 function App() {
   const [academies, setAcademies] = useState([])
 
