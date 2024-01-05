@@ -1,6 +1,6 @@
 CREATE DATABASE `dreamdegree`;
 
-use dreamdegree;
+USE dreamdegree;
 
 CREATE TABLE `addresses` (
   `id_address` int NOT NULL,
