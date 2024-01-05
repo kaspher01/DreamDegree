@@ -3,8 +3,9 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            <h1>Witaj na DreamDegree!</h1>
-            <p>Tu proponuję wrzucić jakiś przycisk coś typu "Odkrywaj" i przekierowanie do listy uczelni.</p>
+            <h1>Gotowy wybrać swoja przyszłość?</h1>
+            <p>karier jest wiele i tak pewnie bedziesz niewolnikiem</p>
+            <p>Ale może wybierzesz dobrze i uciekniesz z matrixa ;)</p>
         </div>
     );
 };
