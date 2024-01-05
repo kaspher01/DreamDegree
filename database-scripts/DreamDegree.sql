@@ -32,15 +32,19 @@ CREATE TABLE `fields_of_study` (
 CREATE TABLE `academies` (
   `id_academy` int NOT NULL,
   `id_address` int DEFAULT NULL,
-  `id_field_of_study` int DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `link` varchar(555) DEFAULT NULL,
   PRIMARY KEY (`id_academy`),
   KEY `id_address` (`id_address`),
-  KEY `id_field_of_study` (`id_field_of_study`),
-  CONSTRAINT `academy_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id_address`),
-  CONSTRAINT `academy_ibfk_2` FOREIGN KEY (`id_field_of_study`) REFERENCES `fields_of_study` (`id_field_of_study`)
+  CONSTRAINT `academy_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id_address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+CREATE TABLE fields_of_study_in_academies (
+    `id_academy` int DEFAULT NULL,
+    `id_field_of_study` int DEFAULT NULL,
+    CONSTRAINT fields_of_study_in_academies_ibfk_1 FOREIGN KEY (`id_academy`) REFERENCES academies (`id_academy`),
+    CONSTRAINT fields_of_study_in_academies_ibfk_2 FOREIGN KEY (`id_field_of_study`) REFERENCES fields_of_study (`id_field_of_study`)
+);
 
 CREATE TABLE `bus_stops` (
   `id_bus_stop` int NOT NULL,
@@ -66,7 +70,7 @@ CREATE TABLE `transports` (
   CONSTRAINT `transport_ibfk_1` FOREIGN KEY (`id_bus_line`) REFERENCES `bus_lines` (`id_bus_line`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `search_engine` (
+CREATE TABLE `favourites` (
   `id_search_engine` int NOT NULL,
   `id_academy` int DEFAULT NULL,
   `id_accommodation` int DEFAULT NULL,
@@ -75,9 +79,9 @@ CREATE TABLE `search_engine` (
   KEY `id_academy` (`id_academy`),
   KEY `id_accommodation` (`id_accommodation`),
   KEY `id_transport` (`id_transport`),
-  CONSTRAINT `search_engine_ibfk_1` FOREIGN KEY (`id_academy`) REFERENCES `academies` (`id_academy`),
-  CONSTRAINT `search_engine_ibfk_2` FOREIGN KEY (`id_accommodation`) REFERENCES `accommodations` (`id_accommodation`),
-  CONSTRAINT `search_engine_ibfk_3` FOREIGN KEY (`id_transport`) REFERENCES `transports` (`id_transport`)
+  CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`id_academy`) REFERENCES `academies` (`id_academy`),
+  CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`id_accommodation`) REFERENCES `accommodations` (`id_accommodation`),
+  CONSTRAINT `favourites_ibfk_3` FOREIGN KEY (`id_transport`) REFERENCES `transports` (`id_transport`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE `users` (
