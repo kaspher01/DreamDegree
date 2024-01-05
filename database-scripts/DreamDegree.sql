@@ -2,7 +2,7 @@ CREATE DATABASE `dreamdegree`;
 
 use dreamdegree;
 
-CREATE TABLE `address` (
+CREATE TABLE `addresses` (
   `id_address` int NOT NULL,
   `city` varchar(50) DEFAULT NULL,
   `street` varchar(100) DEFAULT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE `address` (
   PRIMARY KEY (`id_address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `accommodation` (
+CREATE TABLE `accommodations` (
   `id_accommodation` int NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `id_address` int DEFAULT NULL,
@@ -23,13 +23,13 @@ CREATE TABLE `accommodation` (
   CONSTRAINT `accommodation_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `field_of_study` (
+CREATE TABLE `fields_of_study` (
   `id_field_of_study` int NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_field_of_study`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `academy` (
+CREATE TABLE `academies` (
   `id_academy` int NOT NULL,
   `id_address` int DEFAULT NULL,
   `id_field_of_study` int DEFAULT NULL,
@@ -42,13 +42,13 @@ CREATE TABLE `academy` (
   CONSTRAINT `academy_ibfk_2` FOREIGN KEY (`id_field_of_study`) REFERENCES `field_of_study` (`id_field_of_study`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `bus_stop` (
+CREATE TABLE `bus_stops` (
   `id_bus_stop` int NOT NULL,
   `name` varchar(99) DEFAULT NULL,
   PRIMARY KEY (`id_bus_stop`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `bus_line` (
+CREATE TABLE `bus_lines` (
   `id_bus_line` int NOT NULL,
   `id_bus_stop` int DEFAULT NULL,
   `line_number` varchar(50) DEFAULT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE `bus_line` (
   CONSTRAINT `bus_line_ibfk_1` FOREIGN KEY (`id_bus_stop`) REFERENCES `bus_stop` (`id_bus_stop`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `transport` (
+CREATE TABLE `transports` (
   `id_transport` int NOT NULL,
   `id_bus_line` int DEFAULT NULL,
   `type_of_transport` enum('autobus','tramwaj','pociag') DEFAULT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE `search_engine` (
   CONSTRAINT `search_engine_ibfk_3` FOREIGN KEY (`id_transport`) REFERENCES `transport` (`id_transport`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id_user` int NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `surname` varchar(50) DEFAULT NULL,
