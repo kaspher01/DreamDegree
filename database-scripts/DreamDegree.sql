@@ -20,7 +20,7 @@ CREATE TABLE `accommodations` (
   `link` varchar(555) DEFAULT NULL,
   PRIMARY KEY (`id_accommodation`),
   KEY `id_address` (`id_address`),
-  CONSTRAINT `accommodation_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`)
+  CONSTRAINT `accommodation_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id_address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE `fields_of_study` (
@@ -38,8 +38,8 @@ CREATE TABLE `academies` (
   PRIMARY KEY (`id_academy`),
   KEY `id_address` (`id_address`),
   KEY `id_field_of_study` (`id_field_of_study`),
-  CONSTRAINT `academy_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`),
-  CONSTRAINT `academy_ibfk_2` FOREIGN KEY (`id_field_of_study`) REFERENCES `field_of_study` (`id_field_of_study`)
+  CONSTRAINT `academy_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `addresses` (`id_address`),
+  CONSTRAINT `academy_ibfk_2` FOREIGN KEY (`id_field_of_study`) REFERENCES `fields_of_study` (`id_field_of_study`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE `bus_stops` (
@@ -54,7 +54,7 @@ CREATE TABLE `bus_lines` (
   `line_number` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_bus_line`),
   KEY `id_bus_stop` (`id_bus_stop`),
-  CONSTRAINT `bus_line_ibfk_1` FOREIGN KEY (`id_bus_stop`) REFERENCES `bus_stop` (`id_bus_stop`)
+  CONSTRAINT `bus_line_ibfk_1` FOREIGN KEY (`id_bus_stop`) REFERENCES `bus_stops` (`id_bus_stop`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE `transports` (
@@ -63,7 +63,7 @@ CREATE TABLE `transports` (
   `type_of_transport` enum('autobus','tramwaj','pociag') DEFAULT NULL,
   PRIMARY KEY (`id_transport`),
   KEY `id_bus_line` (`id_bus_line`),
-  CONSTRAINT `transport_ibfk_1` FOREIGN KEY (`id_bus_line`) REFERENCES `bus_line` (`id_bus_line`)
+  CONSTRAINT `transport_ibfk_1` FOREIGN KEY (`id_bus_line`) REFERENCES `bus_lines` (`id_bus_line`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE `search_engine` (
@@ -75,9 +75,9 @@ CREATE TABLE `search_engine` (
   KEY `id_academy` (`id_academy`),
   KEY `id_accommodation` (`id_accommodation`),
   KEY `id_transport` (`id_transport`),
-  CONSTRAINT `search_engine_ibfk_1` FOREIGN KEY (`id_academy`) REFERENCES `academy` (`id_academy`),
-  CONSTRAINT `search_engine_ibfk_2` FOREIGN KEY (`id_accommodation`) REFERENCES `accommodation` (`id_accommodation`),
-  CONSTRAINT `search_engine_ibfk_3` FOREIGN KEY (`id_transport`) REFERENCES `transport` (`id_transport`)
+  CONSTRAINT `search_engine_ibfk_1` FOREIGN KEY (`id_academy`) REFERENCES `academies` (`id_academy`),
+  CONSTRAINT `search_engine_ibfk_2` FOREIGN KEY (`id_accommodation`) REFERENCES `accommodations` (`id_accommodation`),
+  CONSTRAINT `search_engine_ibfk_3` FOREIGN KEY (`id_transport`) REFERENCES `transports` (`id_transport`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 CREATE TABLE `users` (
