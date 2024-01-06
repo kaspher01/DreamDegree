@@ -14,11 +14,11 @@ INSERT INTO addresses VALUES (10, 'Warszawa Śródmieście', 'Targowa przy Wile�
 INSERT INTO addresses VALUES (11, 'Warszawa Mokotów', 'Pieńkowskiego', '4', '02-668'); #Ładny pokój od 01.02.2024 (lutego) - Galeria Mokotów / Metro Służew
 INSERT INTO addresses VALUES (12, 'Warszawa Mokotow', 'Suwak', '13', '02-676'); #Akademik Suwak
 INSERT INTO addresses VALUES (13, 'Gdańsk Wrzeszcz', 'Dmowskiego', '2', '80-264'); #Pokój do wynajęcia
-INSERT INTO addresses VALUES (14, 'Gdańsk Wrzeszcz', 'Reja', '30', '80-404'); #
-INSERT INTO addresses VALUES (15, 'Gdańsk Przymorze', 'Kołobrzeska', '', '80-397'); #
-INSERT INTO addresses VALUES (16, 'Olsztyn Osiedle Pojezierze', 'Kołobrzeska', '', '10-430'); #
-INSERT INTO addresses VALUES (17, 'Olsztyn', 'Czesława Kanafojskiego', '8', '10-722'); #
-INSERT INTO addresses VALUES (18, 'Olsztyn Osiedle Tadeusza Kościuszki', 'Marcina Kasprzaka', '9', '10-057'); #
+INSERT INTO addresses VALUES (14, 'Gdańsk Wrzeszcz', 'Reja', '30', '80-404'); #Pokój we Wrzeszczu! SKM, PG, GUMED!
+INSERT INTO addresses VALUES (15, 'Gdańsk Przymorze', 'Kołobrzeska', '', '80-397'); #Wynajmij 1 sypialnię apartament z 35 m² w Gdansk
+INSERT INTO addresses VALUES (16, 'Olsztyn Osiedle Pojezierze', 'Kołobrzeska', '', '10-430'); #Do wynajęcia dwa idealne pokoje!
+INSERT INTO addresses VALUES (17, 'Olsztyn', 'Czesława Kanafojskiego', '8', '10-722'); #Dom studenta nr. 9
+INSERT INTO addresses VALUES (18, 'Olsztyn Osiedle Tadeusza Kościuszki', 'Marcina Kasprzaka', '9', '10-057'); #Mieszkanie dwupokojowe na wynajem
 
 #Kierunki studiów
 INSERT INTO fields_of_study VALUES (1, 'Informatyka');
@@ -67,7 +67,7 @@ INSERT INTO accommodations VALUES (1, 'Warszawa Śródmieście', 10, 'pokoj', 18
 INSERT INTO accommodations VALUES (2, 'Ładny pokój od 01.02.2024 (lutego) - Galeria Mokotów / Metro Służew', 11, 'pokoj', 1100, 'https://www.olx.pl/d/oferta/ladny-pokoj-od-01-02-2024-lutego-galeria-mokotow-metro-sluzew-CID3-IDXWzVB.html');
 INSERT INTO accommodations VALUES (3, 'Akademik Suwak', 12, 'mieszkanie', 2530, 'https://studentdepot.pl/nasze-akademiki/akademik-warszawa/');
 INSERT INTO accommodations VALUES (4, 'Pokój do wynajęcia', 13, 'pokoj', 1450, 'https://ogloszenia.trojmiasto.pl/nieruchomosci-mam-do-wynajecia/pokoj-do-wynajecia-gdansk-wrzeszcz-gumed-politechnika-ogl65464264.html');
-INSERT INTO accommodations VALUES (5, 'Pokój we Wrzeszczu! SKM, PG, GUMED! ', 14, 'pokoj', 800, 'https://www.olx.pl/d/oferta/pokoj-we-wrzeszczu-skm-pg-gumed-1100-zl-ze-wszystkimi-oplatami-CID3-IDXEdG3.html?isPreviewActive=0&sliderIndex=2');
+INSERT INTO accommodations VALUES (5, 'Pokój we Wrzeszczu! SKM, PG, GUMED!', 14, 'pokoj', 800, 'https://www.olx.pl/d/oferta/pokoj-we-wrzeszczu-skm-pg-gumed-1100-zl-ze-wszystkimi-oplatami-CID3-IDXEdG3.html?isPreviewActive=0&sliderIndex=2');
 INSERT INTO accommodations VALUES (6, 'Wynajmij 1 sypialnię apartament z 35 m² w Gdansk', 15, 'mieszkanie', 2950, 'https://rentola.pl/og%C5%82oszenia/piekna-kawalerka-w-super-lokalizacji-ebf2fb?utm_source=Lifull-connect&utm_medium=CPC&utm_campaign=new-users-desktop-pl');
 INSERT INTO accommodations VALUES (7, 'Do wynajęcia dwa idealne pokoje!', 16, 'mieszkanie', 2450, 'https://www.otodom.pl/pl/oferta/do-wynajecia-dwa-idealne-pokoje-ID4of5u');
 INSERT INTO accommodations VALUES (8, 'Dom studenta nr. 9', 17, 'pokoj', 1130, 'https://zak.olsztyn.pl/ds9/');
@@ -94,3 +94,43 @@ INSERT INTO transports VALUES (6, 1, 'tramwaj');
 INSERT INTO transports VALUES (7, 1, 'tramwaj');
 INSERT INTO transports VALUES (8, 1, 'autobus');
 INSERT INTO transports VALUES (9, 1, 'autobus');
+
+#Kierunki na uczelniach
+INSERT INTO fields_of_study_in_academies VALUES(1, 4);
+INSERT INTO fields_of_study_in_academies VALUES(1, 6);
+INSERT INTO fields_of_study_in_academies VALUES(1, 7);
+INSERT INTO fields_of_study_in_academies VALUES(1, 10);
+INSERT INTO fields_of_study_in_academies VALUES(1, 13);
+INSERT INTO fields_of_study_in_academies VALUES(2, 1);
+INSERT INTO fields_of_study_in_academies VALUES(2, 2);
+INSERT INTO fields_of_study_in_academies VALUES(2, 11);
+INSERT INTO fields_of_study_in_academies VALUES(2, 18);
+INSERT INTO fields_of_study_in_academies VALUES(3, 1);
+INSERT INTO fields_of_study_in_academies VALUES(3, 2);
+INSERT INTO fields_of_study_in_academies VALUES(3, 17);
+INSERT INTO fields_of_study_in_academies VALUES(4, 5);
+INSERT INTO fields_of_study_in_academies VALUES(4, 8);
+INSERT INTO fields_of_study_in_academies VALUES(4, 16);
+INSERT INTO fields_of_study_in_academies VALUES(5, 1);
+INSERT INTO fields_of_study_in_academies VALUES(5, 2);
+INSERT INTO fields_of_study_in_academies VALUES(5, 3);
+INSERT INTO fields_of_study_in_academies VALUES(5, 12);
+INSERT INTO fields_of_study_in_academies VALUES(5, 18);
+INSERT INTO fields_of_study_in_academies VALUES(6, 4);
+INSERT INTO fields_of_study_in_academies VALUES(6, 6);
+INSERT INTO fields_of_study_in_academies VALUES(6, 7);
+INSERT INTO fields_of_study_in_academies VALUES(6, 8);
+INSERT INTO fields_of_study_in_academies VALUES(6, 10);
+INSERT INTO fields_of_study_in_academies VALUES(7, 4);
+INSERT INTO fields_of_study_in_academies VALUES(7, 9);
+INSERT INTO fields_of_study_in_academies VALUES(7, 10);
+INSERT INTO fields_of_study_in_academies VALUES(7, 13);
+INSERT INTO fields_of_study_in_academies VALUES(7, 14);
+INSERT INTO fields_of_study_in_academies VALUES(8, 11);
+INSERT INTO fields_of_study_in_academies VALUES(8, 12);
+INSERT INTO fields_of_study_in_academies VALUES(8, 14);
+INSERT INTO fields_of_study_in_academies VALUES(8, 15);
+INSERT INTO fields_of_study_in_academies VALUES(9, 1);
+INSERT INTO fields_of_study_in_academies VALUES(9, 7);
+INSERT INTO fields_of_study_in_academies VALUES(9, 9);
+INSERT INTO fields_of_study_in_academies VALUES(9, 15);
