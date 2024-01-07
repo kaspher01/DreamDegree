@@ -37,19 +37,24 @@ app.post("/register", (req, res) => {
 app.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-    let results = [];
 
     const sql = `SELECT email, password FROM user`;
 
     db.query(sql, function (err,row) {
-        results = row.body;
-    });
-    console.log(results);
+        let result = Object.values(JSON.parse(JSON.stringify(row)));
+        let matchedUser = result
+            .find((user) => user.email === email && user.password === password)
 
-
-    res.send({
-        token: 'test123'
+        if(matchedUser) {
+            res.send({
+                token: 'test123'
+            });
+        }
+        else {
+            res.sendStatus(401);
+        }
     });
+
 })
 
 app.listen(3001, () => console.log("Server started on port 3001"))

@@ -24,7 +24,6 @@ export const LoginForm = ({ setToken }) => {
     }
 
     const loginUser = async (userCredentials) => {
-        console.log(userCredentials);
         return fetch('http://localhost:3001/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

@@ -37,7 +37,7 @@ export const RegistrationForm = () => {
                     const form = ReactDOM.createRoot(document.getElementById("registration-form"));
                     form.render(<div>Zarejestrowano pomyślnie. Za chwilę zostaniesz przekierowany na stronę logowania.</div>);
                     setTimeout(() => {
-                        window.location.replace('https://google.com');
+                        window.location.replace('http://localhost:3000/login');
                     }, 2500);
                 }
             })
