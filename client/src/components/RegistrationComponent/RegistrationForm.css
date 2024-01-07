@@ -1,0 +1,15 @@
+.registration-form {
+    margin-top: 10%;
+    margin-left: 40%;
+    margin-right: 40%;
+    border: 1px rgba(40, 40, 40, 0.39) solid;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.custom-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}

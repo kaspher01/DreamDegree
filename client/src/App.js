@@ -1,5 +1,10 @@
 import './App.css';
+
 import Navbar from "./components/Navbar";
+import RegistrationForm from "./components/RegistrationComponent/RegistrationForm";
+import LoginForm from "./components/LoginComponent/LoginForm";
+import useToken from "./components/LoginComponent/UseToken";
+import Logout from "./components/LoginComponent/Logout";
 import {Route, Routes} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Academies from "./pages/Academies";
@@ -8,6 +13,12 @@ import Footer from "./components/Footer";
 
 
 function App() {
+  const { token, setToken} = useToken();
+
+    if (!token) {
+        return <LoginForm setToken={setToken} />
+    }
+  
   const [academies, setAcademies] = useState([])
 
   useEffect(() => {
@@ -23,13 +34,20 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/"  element={<Home />} />
-        <Route path="/academies"  element={<Academies academies={academies}/>} />
-        {/*<Route path="/register" element={<RegistrationForm />}/>*/}
-      </Routes>
-      <Footer />
+    <Navbar />
+    <BrowserRouter>
+            <Routes>
+                <Route path="/"  element={<Home />} />
+                <Route path="/academies"  element={<Academies academies={academies}/>} />
+                <Route path="/login" element={<LoginForm setToken={setToken} />}>
+                </Route>
+                <Route path="/register" element={<RegistrationForm />}>
+                </Route>
+                <Route path="/logout" element={<Logout />}>
+                </Route>
+            </Routes>
+    </BrowserRouter>
+  <Footer />
     </>
   );
 }
