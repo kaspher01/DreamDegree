@@ -14,7 +14,13 @@ app.get("/academies", (req,res)=>{
 
 app.get("/academies/:id", (req,res)=>{
     const id = req.params.id;
-    db.query("SELECT * FROM posts WHERE id = ?", id, (err,result)=>{
+    db.query("SELECT * FROM academies WHERE id = ?", id, (err,result)=>{
+        err ? console.log(err) : res.send(result)
+    });
+});
+
+app.get("/posts", (req,res)=>{
+    db.query("SELECT * FROM posts", (err,result)=>{
         err ? console.log(err) : res.send(result)
     });
 });
