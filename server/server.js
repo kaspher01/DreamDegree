@@ -19,4 +19,37 @@ app.get("/academies/:id", (req,res)=>{
     });
 });
 
+app.post("/register", (req, res) => {
+    const name = req.body.name;
+    const surname = req.body.surname;
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const sql = `INSERT INTO user (name, surname, email, password) VALUES ("${name}", "${surname}", "${email}", "${password}")`;
+
+    db.query(sql, function(err) {
+        if (err) throw err;
+        res.end();
+    });
+
+});
+
+app.post("/login", (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    let results = [];
+
+    const sql = `SELECT email, password FROM user`;
+
+    db.query(sql, function (err,row) {
+        results = row.body;
+    });
+    console.log(results);
+
+
+    res.send({
+        token: 'test123'
+    });
+})
+
 app.listen(3001, () => console.log("Server started on port 3001"))
