@@ -1,10 +1,11 @@
-import './App.css';
+import './styles/App.css';
 import Navbar from "./components/Navbar";
 import {Route, Routes} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Academies from "./pages/Academies";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import './styles/SchoolList.css';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         .then(data => setAcademies(data))
         .catch(err => console.error(err))
   }
+
 
   return (
     <>
