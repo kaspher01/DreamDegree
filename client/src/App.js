@@ -35,18 +35,16 @@ function App() {
   return (
     <>
     <Navbar />
-    <BrowserRouter>
-            <Routes>
-                <Route path="/"  element={<Home />} />
-                <Route path="/academies"  element={<Academies academies={academies}/>} />
-                <Route path="/login" element={<LoginForm setToken={setToken} />}>
-                </Route>
-                <Route path="/register" element={<RegistrationForm />}>
-                </Route>
-                <Route path="/logout" element={<Logout />}>
-                </Route>
-            </Routes>
-    </BrowserRouter>
+        <Routes>
+            <Route path="/"  element={<Home />} />
+            <Route path="/academies"  element={<Academies academies={academies}/>} />
+            <Route path="/login" element={<LoginForm setToken={setToken} />}>
+            </Route>
+            <Route path="/register" element={<RegistrationForm />}>
+            </Route>
+            <Route path="/logout" element={<Logout />}>
+            </Route>
+        </Routes>
   <Footer />
     </>
   );
