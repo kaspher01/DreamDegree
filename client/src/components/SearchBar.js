@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const SearchBar = ({ searchQuery, onSearchChange }) => {
     return (
         <div className="search-bar">
@@ -16,4 +15,4 @@ const SearchBar = ({ searchQuery, onSearchChange }) => {
     );
 };
 
-export default Filters;
+export default SearchBar;
