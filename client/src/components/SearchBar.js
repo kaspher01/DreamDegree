@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const SearchBar = ({ searchQuery, onSearchChange }) => {
+const Filters = ({ searchQuery, onSearchChange }) => {
     return (
         <div className="search-bar">
             <input
@@ -10,9 +10,9 @@ const SearchBar = ({ searchQuery, onSearchChange }) => {
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
             />
-            <img src='pngtree-search-icon-png-image_4699282.jpg' alt="search icon" className="search-icon" />
+            <img src='/images/search_icon.jpg' alt="search icon" className="search-icon" />
         </div>
     );
 };
 
-export default SearchBar;
+export default Filters;
