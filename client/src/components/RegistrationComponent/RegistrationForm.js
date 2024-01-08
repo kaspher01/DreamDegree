@@ -1,8 +1,7 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import ReactDOM from 'react-dom/client';
 import * as Yup from "yup";
-// import 'bootstrap/dist/css/bootstrap.css';
-// import './RegistrationForm.css';
+
 
 export const RegistrationForm = () => {
     const initialValues = {
@@ -26,7 +25,7 @@ export const RegistrationForm = () => {
 
     const onSubmit = async (formValues) => {
 
-        fetch('http://localhost:3001/register', {
+        fetch('http://localhost:3001/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formValues)

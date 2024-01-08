@@ -13,40 +13,27 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 
 function App() {
-  const { token, setToken} = useToken();
-
-    // if (!token) {
-    //     return <LoginForm setToken={setToken} />
-    // }
-  
+  const { token, setToken } = useToken();
   const [academies, setAcademies] = useState([])
 
   useEffect(() => {
-    getAcademies()
+      fetch("http://localhost:3001/api/academies")
+          .then(res => res.json())
+          .then(data => setAcademies(data))
+          .catch(err => console.error(err))
   }, []);
-
-  const getAcademies = () => {
-    fetch("http://localhost:3001/academies")
-        .then(res => res.json())
-        .then(data => setAcademies(data))
-        .catch(err => console.error(err))
-  }
-
 
   return (
     <>
-    <Navbar />
-        <Routes>
-            <Route path="/"  element={<Home />} />
-            <Route path="/academies"  element={<Academies academies={academies}/>} />
-            <Route path="/login" element={<LoginForm setToken={setToken} />}>
-            </Route>
-            <Route path="/register" element={<RegistrationForm />}>
-            </Route>
-            <Route path="/logout" element={<Logout />}>
-            </Route>
-        </Routes>
-  <Footer />
+        <Navbar />
+            <Routes>
+                <Route path="/"  element={<Home />} />
+                <Route path="/academies"  element={<Academies academies={academies}/>} />
+                <Route path="/login" element={<LoginForm setToken={setToken} />} />
+                <Route path="/register" element={<RegistrationForm />} />
+                <Route path="/logout" element={<Logout />} />
+            </Routes>
+        <Footer />
     </>
   );
 }
