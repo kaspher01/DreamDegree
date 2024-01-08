@@ -4,7 +4,7 @@ import Academy from "../components/Academy";
 
 const Academies = ({ academies }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [showButton, setShowButton] = useState(false);
+
 
     const filteredAcademies = academies.filter(academy => {
         const academyName = academy.name ? academy.name.toLowerCase() : '';
@@ -23,7 +23,7 @@ const Academies = ({ academies }) => {
     useEffect(() => {
         window.addEventListener('scroll', checkScrollTop);
         return () => window.removeEventListener('scroll', checkScrollTop);
-    }, [showButton]);
+    }, );
         const scrollToTop = () => {
             window.scrollTo({
                 top: 0,
