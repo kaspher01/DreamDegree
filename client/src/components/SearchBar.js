@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchBar = ({ searchQuery, onSearchChange }) => {
     return (
-        <div className="search-bar">
+        <div>
             <input
                 type="text"
                 placeholder="Wyszukaj uczelnię po nazwie"
