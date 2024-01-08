@@ -37,7 +37,7 @@ app.post("/register", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    const sql = `INSERT INTO user (name, surname, email, password) VALUES ("${name}", "${surname}", "${email}", "${password}")`;
+    const sql = `INSERT INTO users (name, surname, email, password) VALUES ("${name}", "${surname}", "${email}", "${password}")`;
 
     db.query(sql, function(err) {
         if (err) throw err;
@@ -50,7 +50,7 @@ app.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    const sql = `SELECT email, password FROM user`;
+    const sql = `SELECT id_user, email, password FROM users`;
 
     db.query(sql, function (err,row) {
         let result = Object.values(JSON.parse(JSON.stringify(row)));
@@ -59,7 +59,8 @@ app.post("/login", (req, res) => {
 
         if(matchedUser) {
             res.send({
-                token: 'test123'
+                userId: matchedUser.id_user,
+                userEmail: matchedUser.email
             });
         }
         else {

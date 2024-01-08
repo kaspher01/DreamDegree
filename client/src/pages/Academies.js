@@ -9,7 +9,6 @@ const Academies = () => {
     const [academiesFields, setAcademiesFields] = useState([]);
     const [selectedFields, setSelectedFields] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-
     useEffect(() => {
         Promise.all([
             fetch('http://localhost:3001/academies').then((response) => response.json()),
