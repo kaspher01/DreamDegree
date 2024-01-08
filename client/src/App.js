@@ -1,5 +1,6 @@
 import './App.css';
-
+import './HPstyles.css'
+import './SchoolList.css';
 import Navbar from "./components/Navbar";
 import RegistrationForm from "./components/RegistrationComponent/RegistrationForm";
 import LoginForm from "./components/LoginComponent/LoginForm";
@@ -10,7 +11,7 @@ import {useEffect, useState} from "react";
 import Academies from "./pages/Academies";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import './SchoolList.css';
+
 
 
 function App() {
