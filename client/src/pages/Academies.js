@@ -17,7 +17,9 @@ const Academies = ({ academies }) => {
 
     return (
         <>
-            <h1>Uczelnie</h1>
+            <div className="search-title">
+                <h1>Uczelnie</h1>
+            </div>
             <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange}/>
             <div className="academies-container">
                 {filteredAcademies.map((academy) => (
