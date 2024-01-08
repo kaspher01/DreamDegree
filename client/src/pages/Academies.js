@@ -11,9 +11,9 @@ const Academies = () => {
     const [searchQuery, setSearchQuery] = useState('');
     useEffect(() => {
         Promise.all([
-            fetch('http://localhost:3001/academies').then((response) => response.json()),
-            fetch('http://localhost:3001/fields').then((response) => response.json()),
-            fetch('http://localhost:3001/academiesFields').then((response) => response.json())
+            fetch('http://localhost:3001/api/academies').then((response) => response.json()),
+            fetch('http://localhost:3001/api/fields').then((response) => response.json()),
+            fetch('http://localhost:3001/api/academiesFields').then((response) => response.json())
         ])
             .then(([academiesData, fieldsData, academiesFieldsData]) => {
                 setAcademies(academiesData);
