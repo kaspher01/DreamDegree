@@ -15,9 +15,9 @@ import Footer from "./components/Footer";
 function App() {
   const { token, setToken} = useToken();
 
-    if (!token) {
-        return <LoginForm setToken={setToken} />
-    }
+    // if (!token) {
+    //     return <LoginForm setToken={setToken} />
+    // }
   
   const [academies, setAcademies] = useState([])
 

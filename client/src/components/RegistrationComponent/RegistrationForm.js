@@ -1,8 +1,8 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import ReactDOM from 'react-dom/client';
 import * as Yup from "yup";
-import 'bootstrap/dist/css/bootstrap.css';
-import './RegistrationForm.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import './RegistrationForm.css';
 
 export const RegistrationForm = () => {
     const initialValues = {
