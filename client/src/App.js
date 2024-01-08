@@ -10,7 +10,6 @@ import {useEffect, useState} from "react";
 import Academies from "./pages/Academies";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import './SchoolList.css';
 
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
         .then(data => setAcademies(data))
         .catch(err => console.error(err))
   }
-
 
   return (
     <>
