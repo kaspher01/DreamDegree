@@ -23,9 +23,8 @@ body.home-body{
     background: linear-gradient(to right, transparent, black);
     animation: animate_one 6s linear infinite;
     animation-delay: 2s;
-
-
 }
+
 @keyframes animate_one {
     0%{
         transform: translateX(-100%);
@@ -34,6 +33,7 @@ body.home-body{
         transform: translateX(100%);
     }
 }
+
 .card span:nth-child(2)
 {
     position: absolute;
@@ -45,6 +45,7 @@ body.home-body{
     animation: animate_two 3s linear infinite;
     animation-delay: 2s;
 }
+
 @keyframes animate_two {
     0%{
         transform: translateY(-100%);
@@ -53,6 +54,7 @@ body.home-body{
         transform: translateY(100%);
     }
 }
+
 .card span:nth-child(3)
 {
     position: absolute;
@@ -64,6 +66,7 @@ body.home-body{
     animation: animate_three 6s linear infinite;
     animation-delay: 3.5s;
 }
+
 @keyframes animate_three {
     0%{
         transform: translateX(100%);
@@ -72,6 +75,7 @@ body.home-body{
         transform: translateX(-100%);
     }
 }
+
 .card span:nth-child(2)
 {
     position: absolute;
@@ -83,6 +87,7 @@ body.home-body{
     animation: animate_two 3s linear infinite;
     animation-delay: 2s;
 }
+
 @keyframes animate_two {
     0%{
         transform: translateY(-100%);
@@ -91,6 +96,7 @@ body.home-body{
         transform: translateY(100%);
     }
 }
+
 .card span:nth-child(4)
 {
     position: absolute;
@@ -102,6 +108,7 @@ body.home-body{
     animation: animate_four 2s linear infinite;
     animation-delay: 3s;
 }
+
 @keyframes animate_four {
     0%{
         transform: translateY(100%);

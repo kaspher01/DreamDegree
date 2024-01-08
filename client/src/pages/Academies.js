@@ -1,57 +1,75 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchBar from "../components/SearchBar";
+import Checkboxes from "../components/Checkboxes";
 import Academy from "../components/Academy";
 
-const Academies = ({ academies }) => {
+const Academies = () => {
+    const [academies, setAcademies] = useState([]);
+    const [fields, setFields] = useState([]);
+    const [academiesFields, setAcademiesFields] = useState([]);
+    const [selectedFields, setSelectedFields] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [showButton, setShowButton] = useState(false);
-
-    const filteredAcademies = academies.filter(academy => {
-        const academyName = academy.name ? academy.name.toLowerCase() : '';
-        const query = searchQuery ? searchQuery.toLowerCase() : '';
-        return academyName.startsWith(query);
-    });
-    const checkScrollTop = () => {
-    const button = document.querySelector('.scroll-to-top');
-    if (window.scrollY > 100){
-        button.classList.add('show');
-    } else {
-        button.classList.remove('show');
-    }
-};
 
     useEffect(() => {
-        window.addEventListener('scroll', checkScrollTop);
-        return () => window.removeEventListener('scroll', checkScrollTop);
-    }, [showButton]);
-        const scrollToTop = () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        };
+        Promise.all([
+            fetch('http://localhost:3001/academies').then((response) => response.json()),
+            fetch('http://localhost:3001/fields').then((response) => response.json()),
+            fetch('http://localhost:3001/academiesFields').then((response) => response.json())
+        ])
+            .then(([academiesData, fieldsData, academiesFieldsData]) => {
+                setAcademies(academiesData);
+                setFields(fieldsData);
+                setAcademiesFields(academiesFieldsData);
+            })
+            .catch((error) => console.error('Error fetching data:', error));
+    }, []);
 
-    const handleSearchChange = (value) => {
-        setSearchQuery(value);
+    const filterAcademies = () => {
+        return academies.filter((academy) => {
+            const academyName = academy.name ? academy.name.toLowerCase() : '';
+            const query = searchQuery ? searchQuery.toLowerCase() : '';
+            const associatedFields = academiesFields.filter((field) => field.id_academy === academy.id_academy);
+            const associatedFieldIds = associatedFields.map((field) => field.id_field_of_study);
+            return (
+                (selectedFields.length === 0 || associatedFieldIds.some((fieldId) => selectedFields.includes(fieldId))) &&
+                academyName.startsWith(query)
+            );
+        });
     };
 
+    const getAcademyFields = (academyId) => {
+        const associatedFields = academiesFields.filter((field) => field.id_academy === academyId);
+        return associatedFields.map((field) => {
+            const fieldInfo = fields.find((f) => f.id_field_of_study === field.id_field_of_study);
+            return fieldInfo ? fieldInfo.name : '';
+        });
+    };
+
+    const handleCheckboxChange = (fieldId) => {
+        setSelectedFields((prevFields) => {
+            if (prevFields.includes(fieldId)) {
+                return prevFields.filter((id) => id !== fieldId);
+            } else {
+                return [...prevFields, fieldId];
+            }
+        });
+    };
+
+    const handleSearchChange = (value) => {
+        setSearchQuery(value.toLowerCase());
+    };
 
     return (
-        <>
+        <div>
+            <h1>Uczelnie</h1>
+            <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
+            <Checkboxes fields={fields} selectedFields={selectedFields} onCheckboxChange={handleCheckboxChange} />
             <div>
-                {/* Your existing code here */}
-                <button onClick={scrollToTop} className="scroll-to-top">^</button>
-            </div>
-            <div className="search-title">
-                <h1>Uczelnie</h1>
-            </div>
-            <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange}/>
-            <div className="academies-container">
-                {filteredAcademies.map((academy) => (
-                    <Academy key={academy._id} {...academy} />
+                {filterAcademies().map((academy) => (
+                    <Academy key={academy.id_academy} name={academy.name} link={academy.link} fields={getAcademyFields(academy.id_academy)} />
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 

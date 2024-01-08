@@ -1,6 +1,6 @@
-import './App.css';
-import './HPstyles.css'
-import './SchoolList.css';
+import './styles/App.css';
+import './styles/HPstyles.css'
+import './styles/SchoolList.css';
 import Navbar from "./components/Navbar";
 import RegistrationForm from "./components/RegistrationComponent/RegistrationForm";
 import LoginForm from "./components/LoginComponent/LoginForm";
@@ -11,8 +11,6 @@ import {useEffect, useState} from "react";
 import Academies from "./pages/Academies";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-
-
 
 function App() {
   const { token, setToken} = useToken();

@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Academy = ({ _id, name, link }) => {
+const Academy = ({ name, link, fields }) => {
     return (
         <div className="academy">
             <h2>{name}</h2>
-            <p>Dowiedz się więcej: {link}</p>
+            <p>Link: <a href={link} target="_blank" rel="noopener noreferrer">{link}</a></p>
+            <p>Kierunki: {fields.join(', ')}</p>
+            <hr />
         </div>
     );
 };
