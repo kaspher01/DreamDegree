@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Filters = ({ searchQuery, onSearchChange }) => {
+const SearchBar = ({ searchQuery, onSearchChange }) => {
     return (
         <div className="search-bar">
             <input
@@ -10,7 +10,8 @@ const Filters = ({ searchQuery, onSearchChange }) => {
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
             />
-            <img src='/images/search_icon.jpg' alt="search icon" className="search-icon" />
+            <img src='/images/search_icon.png' alt="search icon" className="search-icon" />
+
         </div>
     );
 };

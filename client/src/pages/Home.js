@@ -2,14 +2,12 @@ import React, { useEffect } from 'react';
 
 const Home = () => {
     useEffect(() => {
-        // Add the class when the component mounts
         document.body.classList.add('home-body');
 
-        // Remove the class when the component unmounts
         return () => {
             document.body.classList.remove('home-body');
         };
-    }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
+    }, []);
 
     return (
         <div className="box">

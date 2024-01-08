@@ -19,8 +19,14 @@ app.get("/academies/:id", (req,res)=>{
     });
 });
 
-app.get("/posts", (req,res)=>{
-    db.query("SELECT * FROM posts", (err,result)=>{
+app.get("/fields", (req,res)=>{
+    db.query("SELECT * FROM fields_of_study", (err,result)=>{
+        err ? console.log(err) : res.send(result)
+    });
+});
+
+app.get("/academiesFields", (req,res)=>{
+    db.query("SELECT * FROM fields_of_study_in_academies", (err,result)=>{
         err ? console.log(err) : res.send(result)
     });
 });
