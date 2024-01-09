@@ -30,6 +30,7 @@ export const LoginForm = ({ setToken }) => {
             body: JSON.stringify(userCredentials)
         })
             .then(data => data.json());
+
     }
 
     return (
