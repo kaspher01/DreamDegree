@@ -1,11 +1,15 @@
 import React from 'react';
 
 const Academy = ({ name, link, fields }) => {
+    const handleButtonClick = () => {
+        window.open(link, '_blank', 'noopener,noreferrer');
+    };
+
     return (
         <div className="academy">
             <h2>{name}</h2>
-            <p>Link: <a href={link} target="_blank" rel="noopener noreferrer">{link}</a></p>
-            <p>Kierunki: {fields.join(', ')}</p>
+            <button onClick={handleButtonClick}>Strona uczelni</button>
+            <p> {fields.join(' | ')}</p>
             <hr />
         </div>
     );
