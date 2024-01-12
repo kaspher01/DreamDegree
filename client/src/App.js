@@ -1,6 +1,8 @@
 import './styles/App.css';
 import './styles/HPstyles.css'
 import './styles/SchoolList.css';
+import './styles/RegistrationForm.css';
+import './styles/LoginForm.css';
 import Navbar from "./components/Navbar";
 import RegistrationForm from "./components/RegistrationComponent/RegistrationForm";
 import LoginForm from "./components/LoginComponent/LoginForm";
