@@ -81,7 +81,7 @@ export const RegistrationForm = () => {
                                 {(errorMessage) => <div className="text-danger">{errorMessage}</div>}
                             </ErrorMessage>
                         </div>
-                        <button type="submit" className="btn btn-primary custom-button">Zarejestruj się</button>
+                        <button type="submit" className="register-btn">Zarejestruj się</button>
                     </Form>
                 );
             }}

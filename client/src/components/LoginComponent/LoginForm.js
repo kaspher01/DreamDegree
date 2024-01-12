@@ -56,7 +56,7 @@ export const LoginForm = ({ setToken }) => {
                                 {(errorMessage) => <div className="text-danger">{errorMessage}</div>}
                             </ErrorMessage>
                         </div>
-                        <button type="submit" className="btn btn-primary custom-button">Zaloguj się</button>
+                        <button type="submit" className="login-btn">Zaloguj się</button>
                     </Form>
                 );
             }}
