@@ -67,7 +67,11 @@ footer {
     background-color: #edeadd;
     color: black;
     text-align: center;
-    padding: 1px 0;
-    font-size: 11px;
-    height: 33px;
+    padding: 0;
+    font-size: 15px;
+    height: 40px;
+}
+footer p{
+    margin: 11px;
+    padding: 0;
 }

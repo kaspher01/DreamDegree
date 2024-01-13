@@ -57,8 +57,32 @@ const Academies = () => {
     const handleSearchChange = (value) => {
         setSearchQuery(value.toLowerCase());
     };
+    const checkScrollTop = () => {
+        const button = document.querySelector('.scroll-to-top');
+        if (window.scrollY > 100){
+            button.classList.add('show');
+        } else {
+            button.classList.remove('show');
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', checkScrollTop);
+        return () => window.removeEventListener('scroll', checkScrollTop);
+    }, );
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     return (
+        <>
+        <div>
+
+            <button onClick={scrollToTop} className="scroll-to-top">^</button>
+        </div>
         <div>
             <h1>Uczelnie</h1>
             <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
@@ -69,7 +93,9 @@ const Academies = () => {
                 ))}
             </div>
         </div>
+            </>
     );
+
 };
 
 export default Academies;
