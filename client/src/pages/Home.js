@@ -11,10 +11,21 @@ const Home = () => {
 
     return (
         <div className="box">
-
-            <h1>Gotowy wybrać swoja przyszłość?</h1>
-            <p>karier jest wiele i tak pewnie bedziesz niewolnikiem</p>
-            <p>Ale może wybierzesz dobrze i uciekniesz z matrixa ;)</p>
+            <h1>Witaj w przyszłości! Twoje Studia, Twój Świat, Nasza Wyszukiwarka.</h1>
+            <div className="container">
+                <div className="description">
+                    <h2>Przeglądaj Uczelnie</h2>
+                    <p>Twoje pole gry. Znajdź swoje ulubione uczelnie, jakbyś eksplorował nowe krainy.</p>
+                </div>
+                <div className="description">
+                    <h2>Zakwaterowanie na Miarę</h2>
+                    <p>Wybieraj swoje miejsce, jakbyś kształtował własne królestwo.</p>
+                </div>
+                <div className="description">
+                    <h2>Ulubione dla Zalogowanych</h2>
+                    <p>Twoja księga zaklęć. Dodawaj uczelnie do ulubionych, zbieraj skarby swojej edukacyjnej przygody.</p>
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,120 +1,80 @@
-body.home-body{
+body.home-body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 60vh;
     background-color: #edeadd;
+    background-image: url("https://images7.alphacoders.com/694/694702.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.card{
-    position: relative;
-    background-color: #d9d6ca;
-    width: 600px;
-    height: 400px;
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description {
+    flex: 1;
+    padding: 10px;
+    background-color: #ccb7a7;
+    margin: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.description h2 {
+    font-size: 23px;
+    color: floralwhite;
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+.description p {
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    color: floralwhite;
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+    0%   {transform: translateY(200%);}
+    100% {transform: translateY(0%);}
+}
+
+.box {
+    background-color: #edeadd;
+    width: 97%;
+    height: auto;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    border: 2px solid #b3b3b3;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.box h1 {
+    font-size: 2rem;
+    text-shadow: -0.05em -0.05em 0.02em #fd9f01;
     overflow: hidden;
-    border-radius: 5px;
-}
-.card span:nth-child(1)
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, transparent, black);
-    animation: animate_one 6s linear infinite;
-    animation-delay: 2s;
+    white-space: nowrap;
+    margin: 3px 0 0 0;
+    letter-spacing: .15em;
+    animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
 }
 
-@keyframes animate_one {
-    0%{
-        transform: translateX(-100%);
-    }
-    100%{
-        transform: translateX(100%);
-    }
+@keyframes typing {
+    from { width: 0 }
+    to { width: 83% }
 }
 
-.card span:nth-child(2)
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, black);
-    animation: animate_two 3s linear infinite;
-    animation-delay: 2s;
+@keyframes blink-caret {
+    from, to { border-color: transparent }
 }
 
-@keyframes animate_two {
-    0%{
-        transform: translateY(-100%);
-    }
-    100%{
-        transform: translateY(100%);
-    }
-}
-
-.card span:nth-child(3)
-{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to left, transparent, black);
-    animation: animate_three 6s linear infinite;
-    animation-delay: 3.5s;
-}
-
-@keyframes animate_three {
-    0%{
-        transform: translateX(100%);
-    }
-    100%{
-        transform: translateX(-100%);
-    }
-}
-
-.card span:nth-child(2)
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, black);
-    animation: animate_two 3s linear infinite;
-    animation-delay: 2s;
-}
-
-@keyframes animate_two {
-    0%{
-        transform: translateY(-100%);
-    }
-    100%{
-        transform: translateY(100%);
-    }
-}
-
-.card span:nth-child(4)
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(to top, transparent, black);
-    animation: animate_four 2s linear infinite;
-    animation-delay: 3s;
-}
-
-@keyframes animate_four {
-    0%{
-        transform: translateY(100%);
-    }
-    100%{
-        transform: translateY(-100%);
-    }
-}
