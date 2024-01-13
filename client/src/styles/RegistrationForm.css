@@ -13,13 +13,14 @@
     background-color: #f5f5f5;
 }
 
-.form-control{
+.form-control {
     padding: 7px;
     border: 2px solid #b3b3b3;
     border-radius: 10px;
     margin-bottom: 6px;
     width: 400px;
 }
+
 .registration-form label {
     margin-right: 10px;
     margin-left: 0;
@@ -27,12 +28,13 @@
     justify-content: left;
     display: block;
 }
+
 .text-danger {
     font-size: 12px;
     color: #e6a330;
-
 }
-.register-btn{
+
+.register-btn {
     background-color: #e6a330;
     border: none;
     color: white;
@@ -46,6 +48,7 @@
     border-radius: 12px;
     font-family: Monaco, monospace;
 }
+
 .register-btn:hover {
     background-color: #a6a6a6;
 }

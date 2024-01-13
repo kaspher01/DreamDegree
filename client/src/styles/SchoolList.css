@@ -5,7 +5,8 @@ body {
 ::-webkit-scrollbar {
     width: 0;
 }
-.academy button{
+
+.academy button {
     background-color: #e6a330;
     border: none;
     color: white;
@@ -19,10 +20,12 @@ body {
     border-radius: 12px;
     font-family: Monaco, monospace;
 }
+
 .academy button:hover {
     background-color: #a6a6a6;
 }
-.academy{
+
+.academy {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -51,8 +54,6 @@ body {
 .academy p {
     font-family: Monaco, monospace;
     margin-top: 30px;
-
-
 }
 
 .academy:last-child {
