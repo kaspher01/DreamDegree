@@ -25,4 +25,10 @@ router.get("/academiesFields", (req,res)=>{
     });
 });
 
+router.get("/addresses", (req,res)=>{
+    db.query("SELECT * FROM addresses WHERE id_address <= 9", (err,result)=>{
+        err ? console.log(err) : res.send(result)
+    });
+});
+
 module.exports = router;
