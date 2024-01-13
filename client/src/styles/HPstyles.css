@@ -1,4 +1,4 @@
-body.home-body{
+body.home-body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,25 +9,72 @@ body.home-body{
     background-size: cover;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description {
+    flex: 1;
+    padding: 10px;
+    background-color: #ccb7a7;
+    margin: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.description h2 {
+    font-size: 23px;
+    color: floralwhite;
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+.description p {
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    color: floralwhite;
+    animation: slideUp 2s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+    0%   {transform: translateY(200%);}
+    100% {transform: translateY(0%);}
+}
+
 .box {
     background-color: #edeadd;
-    width: 600px;
-    height: 300px;
+    width: 97%;
+    height: auto;
     font-weight: 600;
-
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     margin-top: 150px;
-
     border: 2px solid #b3b3b3;
-    border-radius: 10px;
-
-
+    border-radius: 20px;
+    padding: 10px;
 }
 
-.box h1{
-    text-align: center;
-
+.box h1 {
+    font-size: 2rem;
+    text-shadow: -0.05em -0.05em 0.02em #fd9f01;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 3px 0 0 0;
+    letter-spacing: .15em;
+    animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
 }
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 83% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+}
+
