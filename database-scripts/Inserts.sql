@@ -20,6 +20,16 @@ INSERT INTO addresses VALUES (16, 'Olsztyn Osiedle Pojezierze', 'Kołobrzeska', 
 INSERT INTO addresses VALUES (17, 'Olsztyn', 'Czesława Kanafojskiego', '8', '10-722'); #Dom studenta nr. 9
 INSERT INTO addresses VALUES (18, 'Olsztyn Osiedle Tadeusza Kościuszki', 'Marcina Kasprzaka', '9', '10-057'); #Mieszkanie dwupokojowe na wynajem
 
+# INSERT INTO addresses VALUES (19, 'Kraków', 'Gołębia', '24', '31-007');
+# INSERT INTO addresses VALUES (20, 'Kraków', 'Warszawska', '24', '31-155');
+# INSERT INTO addresses VALUES (21, 'Kraków', 'aleja Kijowska', '14', '30-079');
+# INSERT INTO addresses VALUES (22, 'Wrocław', 'plac Uniwersytecki', '1', '50-137');
+# INSERT INTO addresses VALUES (23, 'Wrocław', 'Strzegomska', '55', '53-611');
+# INSERT INTO addresses VALUES (24, 'Łódź', 'aleja Tadeusza Kościuszki', '4', '90-419');
+# INSERT INTO addresses VALUES (25, 'Łódź', 'Stefana Żeromskiego', '116', '90-924');
+# INSERT INTO addresses VALUES (26, 'Poznań', 'plac Marii Skłodowskiej-Curie', '5', '60-965');
+# INSERT INTO addresses VALUES (27, 'Poznań', 'Wieniawskiego', '1', '61-712');
+
 #Kierunki studiów
 INSERT INTO fields_of_study VALUES (1, 'Informatyka');
 INSERT INTO fields_of_study VALUES (2, 'Matematyka Stosowana');
@@ -61,6 +71,15 @@ INSERT INTO academies VALUES (6, 6, 'Uniwersytet Gdański', 'https://ug.edu.pl/'
 INSERT INTO academies VALUES (7, 7, 'Uniwersytet Warmińsko-Mazurski', 'https://uwm.edu.pl/');
 INSERT INTO academies VALUES (8, 8, 'Olsztyńska Szkoła Wyższa im. Józefa Rusieckiego', 'https://www.osw.edu.pl/');
 INSERT INTO academies VALUES (9, 9, 'Wyższa Szkoła Informatyki i Zarządzania im. Prof. Tadeusza Kotarbińskiego', 'http://owsiiz.edu.pl/');
+# INSERT INTO academies VALUES (10, 19, 'Uniwersytet Jagielloński', 'https://www.uj.edu.pl/');
+# INSERT INTO academies VALUES (11, 20, 'Politechnika Krakowska', 'https://www.pk.edu.pl/index.php?lang=pl');
+# INSERT INTO academies VALUES (12, 21, 'Wyższa Szkoła Zarządzania i Bankowości w Krakowie', 'https://www.wszib.edu.pl/');
+# INSERT INTO academies VALUES (13, 22, 'Uniwersytet Wrocławski', 'https://uwr.edu.pl/');
+# INSERT INTO academies VALUES (14, 23, 'Uniwersytet Dolnośląski DSW Wrocław', 'https://www.dsw.edu.pl/');
+# INSERT INTO academies VALUES (15, 24, 'Uniwersytet Medyczny w Łodzi', 'https://umed.pl/');
+# INSERT INTO academies VALUES (16, 25, 'Politechnika Łódzka', 'https://p.lodz.pl/');
+# INSERT INTO academies VALUES (17, 26, 'Politechnika Poznańska', 'https://www.put.poznan.pl/');
+# INSERT INTO academies VALUES (18, 27, 'Uniwersytet im. Adama Mickiewicza w Poznaniu', 'https://amu.edu.pl/');
 
 #Zakwaterowania
 INSERT INTO accommodations VALUES (1, 'Warszawa Śródmieście', 10, 'pokoj', 1800, 'https://adresowo.pl/o/n0w4a6');

@@ -70,20 +70,6 @@ CREATE TABLE `transports` (
   CONSTRAINT `transport_ibfk_1` FOREIGN KEY (`id_bus_line`) REFERENCES `bus_lines` (`id_bus_line`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `favourites` (
-  `id_search_engine` int NOT NULL,
-  `id_academy` int DEFAULT NULL,
-  `id_accommodation` int DEFAULT NULL,
-  `id_transport` int DEFAULT NULL,
-  PRIMARY KEY (`id_search_engine`),
-  KEY `id_academy` (`id_academy`),
-  KEY `id_accommodation` (`id_accommodation`),
-  KEY `id_transport` (`id_transport`),
-  CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`id_academy`) REFERENCES `academies` (`id_academy`),
-  CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`id_accommodation`) REFERENCES `accommodations` (`id_accommodation`),
-  CONSTRAINT `favourites_ibfk_3` FOREIGN KEY (`id_transport`) REFERENCES `transports` (`id_transport`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 CREATE TABLE `users` (
   `id_user` int NOT NULL,
   `name` varchar(50) DEFAULT NULL,
@@ -92,3 +78,11 @@ CREATE TABLE `users` (
   `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `favourites` (
+  `id_user` int DEFAULT NULL,
+  `id_academy` int DEFAULT NULL,
+  CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`id_academy`) REFERENCES `academies` (`id_academy`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
