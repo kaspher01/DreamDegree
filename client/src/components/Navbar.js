@@ -11,9 +11,12 @@ const Navbar = () => {
             <ul>
                 <li><Link to="/">Strona domowa</Link></li>
                 <li><Link to="/academies">Lista uczelni</Link></li>
+                {!token && <li><Link to="/register">Zarejestruj się</Link></li>}
                 {token ? <li><Link to="/favourites">Ulubione uczelnie</Link></li> : null}
-                <li><Link to="/register">Zarejestruj się</Link></li>
-                {token ? <li><Link to="/logout">Wyloguj się</Link></li> : <li><Link to="/login">Zaloguj się</Link></li>}
+                {token ?
+                    <li><Link to="/logout">Wyloguj się</Link></li> :
+                    <li><Link to="/login">Zaloguj się</Link></li>
+                }
             </ul>
         </nav>
     )

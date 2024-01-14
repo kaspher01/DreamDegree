@@ -33,13 +33,10 @@ router.get("/addresses", (req,res)=>{
 
 router.get("/favourites", (req, res) => {
     const userId = req.query.userId;
-    console.log(userId);
-
     const sql = `SELECT * FROM favourites WHERE id_user = "${userId}"`;
 
     db.query(sql, (err, row) => {
         let result = Object.values(JSON.parse(JSON.stringify(row)));
-        console.log(result);
         err ? console.log(err) : res.send(result);
     })
 })
