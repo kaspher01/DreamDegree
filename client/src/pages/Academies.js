@@ -24,7 +24,7 @@ const Academies = () => {
             fetch('http://localhost:3001/api/fields').then((response) => response.json()),
             fetch('http://localhost:3001/api/addresses').then((response) => response.json()),
             fetch('http://localhost:3001/api/academiesFields').then((response) => response.json()),
-            fetch('http://localhost:3001/api/favourites?' + new URLSearchParams({ userId: token.userId })).then((response) => response.json())
+            fetch('http://localhost:3001/api/favourites?' + new URLSearchParams({ userId: token ? token.userId : null })).then((response) => response.json())
 
         ])
             .then(([academiesData, fieldsData, addressesData, academiesFieldsData, favouritesData]) => {
