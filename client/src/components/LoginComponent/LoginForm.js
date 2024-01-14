@@ -19,8 +19,12 @@ export const LoginForm = ({ setToken }) => {
     });
 
     const onSubmit = async (formValues) => {
-        const token = await loginUser(formValues);
-        setToken(token);
+        const response = await loginUser(formValues);
+
+        if (response) {
+            setToken(response);
+            window.location.replace('http://localhost:3000');
+        }
     }
 
     const loginUser = async (userCredentials) => {
@@ -29,7 +33,12 @@ export const LoginForm = ({ setToken }) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userCredentials)
         })
-            .then(data => data.json());
+            .then(data => {
+                if (data.ok) {
+                    return data.json();
+                }
+                alert("Nieprawidłowy login lub hasło");
+            });
 
     }
 

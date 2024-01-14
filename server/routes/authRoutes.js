@@ -6,7 +6,7 @@ router.post("/register", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    const sql = `INSERT INTO users (name, surname, email, password) VALUES ("${name}", "${surname}", "${email}", "${password}")`;
+    const sql = `INSERT INTO users (id_user, name, surname, email, password) VALUES (1, "${name}", "${surname}", "${email}", "${password}")`;
 
     db.query(sql, function(err) {
         if (err) throw err;
@@ -28,8 +28,10 @@ router.post("/login", (req, res) => {
 
         if(matchedUser) {
             res.send({
-                userId: matchedUser.id_user,
-                userEmail: matchedUser.email
+                token: {
+                    userId: matchedUser.id_user,
+                    userEmail: matchedUser.email
+                }
             });
         }
         else {

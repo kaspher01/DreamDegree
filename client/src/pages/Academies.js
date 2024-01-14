@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import FieldsFilters from "../components/FieldsFilters";
 import Academy from "../components/Academy";
 import AddressesFilters from "../components/AddressesFilters";
+import useToken from "../components/LoginComponent/UseToken";
 
 const Academies = () => {
     const [academies, setAcademies] = useState([]);
@@ -12,19 +13,26 @@ const Academies = () => {
     const [selectedFields, setSelectedFields] = useState([]);
     const [selectedAddresses, setSelectedAddresses] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [favourites, setFavourites] = useState([]);
+
+    const { token, setToken } = useToken();
 
     useEffect(() => {
+
         Promise.all([
             fetch('http://localhost:3001/api/academies').then((response) => response.json()),
             fetch('http://localhost:3001/api/fields').then((response) => response.json()),
             fetch('http://localhost:3001/api/addresses').then((response) => response.json()),
-            fetch('http://localhost:3001/api/academiesFields').then((response) => response.json())
+            fetch('http://localhost:3001/api/academiesFields').then((response) => response.json()),
+            fetch('http://localhost:3001/api/favourites?' + new URLSearchParams({ userId: token.userId })).then((response) => response.json())
+
         ])
-            .then(([academiesData, fieldsData, addressesData, academiesFieldsData]) => {
+            .then(([academiesData, fieldsData, addressesData, academiesFieldsData, favouritesData]) => {
                 setAcademies(academiesData);
                 setFields(fieldsData);
                 setAddresses(addressesData);
                 setAcademiesFields(academiesFieldsData);
+                setFavourites(favouritesData);
             })
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
@@ -127,9 +135,12 @@ const Academies = () => {
                 {filterAcademies().map((academy) => (
                     <Academy
                         key={academy.id_academy}
+                        id={academy.id_academy}
                         name={academy.name}
                         link={academy.link}
                         fields={getAcademyFields(academy.id_academy)}
+                        token={token}
+                        favourites={favourites}
                     />
                 ))}
             </div>

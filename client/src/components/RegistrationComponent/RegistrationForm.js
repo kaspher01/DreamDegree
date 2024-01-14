@@ -32,7 +32,6 @@ export const RegistrationForm = () => {
         })
             .then((response) => {
                 if (response.ok) {
-                    console.log('sss')
                     const form = ReactDOM.createRoot(document.getElementById("registration-form"));
                     form.render(<div>Zarejestrowano pomyślnie. Za chwilę zostaniesz przekierowany na stronę logowania.</div>);
                     setTimeout(() => {

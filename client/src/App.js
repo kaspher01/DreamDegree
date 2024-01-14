@@ -13,6 +13,7 @@ import {useEffect, useState} from "react";
 import Academies from "./pages/Academies";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import FavouritesPage from "./pages/FavouritesPage";
 
 function App() {
   const { token, setToken } = useToken();
@@ -30,7 +31,8 @@ function App() {
         <Navbar />
             <Routes>
                 <Route path="/"  element={<Home />} />
-                <Route path="/academies"  element={<Academies academies={academies}/>} />
+                <Route path="/academies" element={<Academies academies={academies}/>} />
+                <Route path="/favourites" element={<FavouritesPage />} />
                 <Route path="/login" element={<LoginForm setToken={setToken} />} />
                 <Route path="/register" element={<RegistrationForm />} />
                 <Route path="/logout" element={<Logout />} />
