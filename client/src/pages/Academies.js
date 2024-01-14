@@ -14,6 +14,7 @@ const Academies = () => {
     const [selectedAddresses, setSelectedAddresses] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [favourites, setFavourites] = useState([]);
+    const [favouritesButton, setFavouritesButton] = useState('');
 
     const { token, setToken } = useToken();
 
@@ -35,7 +36,11 @@ const Academies = () => {
                 setFavourites(favouritesData);
             })
             .catch((error) => console.error('Error fetching data:', error));
-    }, [favourites]);
+    }, [favouritesButton]);
+
+    const onFavouritesButtonChange = (newFavouritesButton) => {
+        setFavouritesButton(newFavouritesButton);
+    }
 
     const filterAcademies = () => {
         return academies.filter((academy) => {
@@ -141,6 +146,7 @@ const Academies = () => {
                         fields={getAcademyFields(academy.id_academy)}
                         token={token}
                         favourites={favourites}
+                        onFavouritesButtonChanged={onFavouritesButtonChange}
                     />
                 ))}
             </div>

@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Academy = ({ id, name, link, fields, token, favourites }) => {
+const Academy = ({ id, name, link, fields, token, favourites, onFavouritesButtonChanged }) => {
 
     const handleButtonClick = () => {
         window.open(link, '_blank', 'noopener,noreferrer');
@@ -14,6 +12,7 @@ const Academy = ({ id, name, link, fields, token, favourites }) => {
         })
             .then(response => {
                 if (response.ok) {
+                    onFavouritesButtonChanged(id);
                 }
             })
             .catch(error => console.log(error));
@@ -27,12 +26,13 @@ const Academy = ({ id, name, link, fields, token, favourites }) => {
         })
             .then(response => {
                 if (response.ok) {
+                    onFavouritesButtonChanged(id);
                 }
             })
             .catch(error => console.log(error));
     }
 
-    const favouritesButton = () => {
+    const updateFavouritesButton = () => {
         if (favourites.find((academy) => academy.id_academy === id)) {
             return (
                 <button onClick={deleteFromFavourites}>Usuń z ulubionych</button>
@@ -48,7 +48,7 @@ const Academy = ({ id, name, link, fields, token, favourites }) => {
         <div className="academy">
             <h2>{name}</h2>
             <button onClick={handleButtonClick}>Strona uczelni</button>
-            {token ? favouritesButton() : null}
+            {token ? updateFavouritesButton() : null}
             <p> {fields.join(' | ')}</p>
             <hr />
         </div>
