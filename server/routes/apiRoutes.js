@@ -31,4 +31,35 @@ router.get("/addresses", (req,res)=>{
     });
 });
 
+router.get("/favourites", (req, res) => {
+    const userId = req.query.userId;
+    console.log(userId);
+
+    const sql = `SELECT * FROM favourites WHERE id_user = "${userId}"`;
+
+    db.query(sql, (err, row) => {
+        let result = Object.values(JSON.parse(JSON.stringify(row)));
+        console.log(result);
+        err ? console.log(err) : res.send(result);
+    })
+})
+
+router.post("/addToFavourites", (req, res) => {
+    const userId = req.body.id_user;
+    const academyId = req.body.id_academy;
+
+    db.query(`INSERT INTO favourites (id_user, id_academy) VALUES ("${userId}", "${academyId}")`, (err, result) => {
+        err ? console.log(err) : res.send(result);
+    });
+});
+
+router.delete("/deleteFromFavourites", (req, res) => {
+    const userId = req.body.id_user;
+    const academyId = req.body.id_academy;
+
+    db.query(`DELETE FROM favourites WHERE id_user = "${userId}" and id_academy = "${academyId}"`, (err, result) => {
+        err ? console.log(err) : res.send(result);
+    });
+})
+
 module.exports = router;
