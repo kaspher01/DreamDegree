@@ -35,7 +35,7 @@ const Academies = () => {
                 setFavourites(favouritesData);
             })
             .catch((error) => console.error('Error fetching data:', error));
-    }, []);
+    }, [favourites]);
 
     const filterAcademies = () => {
         return academies.filter((academy) => {

@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import useToken from "../components/LoginComponent/UseToken";
 import Academy from "../components/Academy";
-import LoginForm from "../components/LoginComponent/LoginForm";
 
 const FavouritesPage = () => {
     const [favourites, setFavourites] = useState([]);
@@ -27,7 +26,7 @@ const FavouritesPage = () => {
                 setAcademiesFields(academiesFieldsData);
             })
             .catch((error) => console.error('Error fetching data:', error));
-     }, [])
+     }, [favourites]);
 
     const getAcademy = (academyId) => {
         const academy = academies.find(academy => academy.id_academy = academyId);
