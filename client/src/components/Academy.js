@@ -1,4 +1,4 @@
-const Academy = ({ id, name, link, fields, token, favourites, onFavouritesButtonChanged }) => {
+const Academy = ({ id, name, link, fields, token, favourites }) => {
 
     const handleButtonClick = () => {
         window.open(link, '_blank', 'noopener,noreferrer');
@@ -12,7 +12,7 @@ const Academy = ({ id, name, link, fields, token, favourites, onFavouritesButton
         })
             .then(response => {
                 if (response.ok) {
-                    onFavouritesButtonChanged(id);
+                    console.log('Added to favourites');
                 }
             })
             .catch(error => console.log(error));
@@ -26,7 +26,7 @@ const Academy = ({ id, name, link, fields, token, favourites, onFavouritesButton
         })
             .then(response => {
                 if (response.ok) {
-                    onFavouritesButtonChanged(id);
+                    console.log('Deleted from favourites');
                 }
             })
             .catch(error => console.log(error));

@@ -7,9 +7,8 @@ const FavouritesPage = () => {
     const [academies, setAcademies] = useState([]);
     const [fields, setFields] = useState([]);
     const [academiesFields, setAcademiesFields] = useState([]);
-    const [favouritesButton, setFavouritesButton] = useState('');
 
-    const { token, setToken } = useToken();
+    const { token } = useToken();
 
     useEffect(() => {
 
@@ -27,11 +26,7 @@ const FavouritesPage = () => {
                 setAcademiesFields(academiesFieldsData);
             })
             .catch((error) => console.error('Error fetching data:', error));
-     }, [favouritesButton]);
-
-    const onFavouritesButtonChange = (newFavouritesButton) => {
-        setFavouritesButton(newFavouritesButton);
-    }
+     }, [favourites, token]);
 
     const getAcademy = (academyId) => {
         const academy = academies.find(academy => academy.id_academy = academyId);
@@ -45,8 +40,7 @@ const FavouritesPage = () => {
                 fields={getAcademyFields(academy.id_academy)}
                 token={token}
                 favourites={favourites}
-                onFavouritesButtonChanged={onFavouritesButtonChange}
-            ></Academy>
+            />
         )
     }
 

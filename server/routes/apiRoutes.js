@@ -1,5 +1,6 @@
 const {db} = require("../config/db");
 const router = require("express").Router();
+
 router.get("/academies", (req,res)=>{
     db.query("SELECT * FROM academies", (err,result)=>{
         err ? console.log(err) : res.send(result)
@@ -8,7 +9,7 @@ router.get("/academies", (req,res)=>{
 
 router.get("/academies/:id", (req,res)=>{
     const id = req.params.id;
-    db.query("SELECT * FROM academies WHERE id = ?", id, (err,result)=>{
+    db.query("SELECT * FROM academies WHERE id = ?", [id], (err,result)=>{
         err ? console.log(err) : res.send(result)
     });
 });
@@ -33,9 +34,9 @@ router.get("/addresses", (req,res)=>{
 
 router.get("/favourites", (req, res) => {
     const userId = req.query.userId;
-    const sql = `SELECT * FROM favourites WHERE id_user = "${userId}"`;
+    const sql = `SELECT * FROM favourites WHERE id_user = ?`;
 
-    db.query(sql, (err, row) => {
+    db.query(sql, [userId], (err, row) => {
         let result = Object.values(JSON.parse(JSON.stringify(row)));
         err ? console.log(err) : res.send(result);
     })
@@ -45,7 +46,7 @@ router.post("/addToFavourites", (req, res) => {
     const userId = req.body.id_user;
     const academyId = req.body.id_academy;
 
-    db.query(`INSERT INTO favourites (id_user, id_academy) VALUES ("${userId}", "${academyId}")`, (err, result) => {
+    db.query(`INSERT INTO favourites (id_user, id_academy) VALUES (?, ?)`, [userId, academyId], (err, result) => {
         err ? console.log(err) : res.send(result);
     });
 });
@@ -54,7 +55,7 @@ router.delete("/deleteFromFavourites", (req, res) => {
     const userId = req.body.id_user;
     const academyId = req.body.id_academy;
 
-    db.query(`DELETE FROM favourites WHERE id_user = "${userId}" and id_academy = "${academyId}"`, (err, result) => {
+    db.query(`DELETE FROM favourites WHERE id_user = ? and id_academy = ?`, [userId, academyId], (err, result) => {
         err ? console.log(err) : res.send(result);
     });
 })
